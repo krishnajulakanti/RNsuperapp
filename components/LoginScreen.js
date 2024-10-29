@@ -7,6 +7,7 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
+import Logo from '../assets/images/SMFG-Logo.svg';
 
 const LoginScreen = () => {
   const [lanId, setLanId] = useState('');
@@ -19,11 +20,13 @@ const LoginScreen = () => {
       <Text style={styles.language}>English ▸</Text>
 
       {/* Logo */}
-      <Image
+      {/* <Image
         style={styles.logo}
-        source={{uri: 'https://your-logo-url.com/logo.png'}} // Replace with your logo URL
+        source={{uri: 'https://your-logo-url.com/logo.png'}}
         resizeMode="contain"
-      />
+      /> */}
+
+      <Logo width={300} height={300} />
 
       <Text style={styles.title}>Login</Text>
 
