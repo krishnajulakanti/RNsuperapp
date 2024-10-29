@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Logo from '../assets/images/SMFG-Logo.svg';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [lanId, setLanId] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -68,7 +68,7 @@ const LoginScreen = () => {
         <Text style={styles.registerText}>REGISTER</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
