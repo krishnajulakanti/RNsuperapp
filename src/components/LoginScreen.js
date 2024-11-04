@@ -20,12 +20,6 @@ const LoginScreen = ({ navigation }) => {
       <Text style={styles.language}>English ▸</Text>
 
       {/* Logo */}
-      {/* <Image
-        style={styles.logo}
-        source={{uri: 'https://your-logo-url.com/logo.png'}}
-        resizeMode="contain"
-      /> */}
-
       <Logo width={300} height={300} />
 
       <Text style={styles.title}>Login</Text>
@@ -68,7 +62,7 @@ const LoginScreen = ({ navigation }) => {
         <Text style={styles.registerText}>REGISTER</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('ForgotPassword')}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
@@ -104,6 +98,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#007B55',
   },
   inputContainer: {
     width: '100%',
@@ -133,6 +128,7 @@ const styles = StyleSheet.create({
   registerButton: {
     width: '100%',
     padding: 15,
+    marginTop: 140,
     marginBottom: 15,
     borderRadius: 25,
     borderColor: '#333',
@@ -147,7 +143,7 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 15,
     borderRadius: 25,
-    backgroundColor: '#007B55',
+    backgroundColor: '#2E6C50',
     alignItems: 'center',
   },
   loginText: {

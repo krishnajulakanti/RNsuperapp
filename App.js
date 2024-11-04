@@ -1,25 +1,23 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import LoginScreen from './components/LoginScreen';
-import HomeScreen from './components/HomeScreen';
+import {enableScreens} from 'react-native-screens';
+import {useColorScheme} from 'react-native';
+import {UIThemeProvider} from './src/theme';
+import AppNavigator from './src/navigation/AppNavigator';
 
-import { enableScreens } from 'react-native-screens';
 enableScreens();
 
-const Stack = createNativeStackNavigator();
-
 const App = () => {
+  // const isDarkMode = useColorScheme() === 'dark';
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <UIThemeProvider mode={'light'}
+      // brand={CL}
+      >
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    </UIThemeProvider>
   );
 };
-
-
 
 export default App;
