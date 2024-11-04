@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
 
 const OtpVerificationScreen = ({ navigation }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
@@ -30,8 +32,37 @@ const OtpVerificationScreen = ({ navigation }) => {
     navigation.navigate('ResetPasswordScreen');
   };
 
+  const headerProps = [
+    {
+      // size: 'default',
+      title: 'Forgot Password',
+      onPress: () => {
+        navigation.goBack();
+      },
+    },
+  ];
+
+  const footerProps = [
+    {
+      // size: 'default',
+      varient: 'secondary',
+      title: 'CANCEL',
+      onPress:  () => { navigation.goBack();},
+    },
+    {
+      // size: 'default',
+      varient: 'primary',
+      title: 'SUBMIT',
+      onPress:  () => { navigation.navigate('ResetPasswordScreen');},
+    },
+  ];
+
   return (
     <View style={styles.container}>
+
+<View style={styles.header}>
+      <Header buttonProps={headerProps}/>
+      </View>
       {/* <Text style={styles.header}>Forgot Password</Text> */}
       <Text style={styles.instruction}>Enter the 4-digit code sent to your registered mobile number.</Text>
 
@@ -55,14 +86,8 @@ const OtpVerificationScreen = ({ navigation }) => {
         <Text style={styles.resendOtp}>RESEND OTP</Text>
       </TouchableOpacity>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.goBack()}>
-          <Text style={styles.cancelText}>CANCEL</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.submitText}>SUBMIT</Text>
-        </TouchableOpacity>
-      </View>
+      <Footer buttonProps={footerProps}/>
+
     </View>
   );
 };
@@ -75,10 +100,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   header: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+    color: 'black',
   },
   instruction: {
     fontSize: 14,

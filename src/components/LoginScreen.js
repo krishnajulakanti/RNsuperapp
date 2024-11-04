@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#007B55',
+    color: '#2E6C50',
   },
   inputContainer: {
     width: '100%',
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#E0E0E0',
+    borderColor: '#A1A241',
     borderRadius: 8,
     backgroundColor: '#FFF',
   },
@@ -122,8 +122,8 @@ const styles = StyleSheet.create({
   forgotPassword: {
     alignSelf: 'flex-end',
     marginBottom: 20,
-    color: '#007BFF',
-    textDecorationLine: 'underline',
+    color: '#2E6C50',
+    textDecorationLine: 'none',
   },
   registerButton: {
     width: '100%',

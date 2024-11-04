@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
 
 const ResetPasswordScreen = ({ navigation }) => {
   const [newPassword, setNewPassword] = useState('');
@@ -11,8 +13,38 @@ const ResetPasswordScreen = ({ navigation }) => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
+  const headerProps = [
+    {
+      // size: 'default',
+      title: 'Forgot Password',
+      onPress: () => {
+        navigation.goBack();
+      },
+    },
+  ];
+
+  const footerProps = [
+    {
+      // size: 'default',
+      varient: 'secondary',
+      title: 'CANCEL',
+      onPress:  () => { navigation.goBack();},
+    },
+    {
+      // size: 'default',
+      varient: 'primary',
+      title: 'RESET',
+      onPress:  () => { navigation.navigate('DashboardScreen');},
+    },
+  ];
+
   return (
     <View style={styles.container}>
+
+      <View style={styles.header}>
+        <Header buttonProps={headerProps}/>
+      </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>New Password</Text>
         <View style={styles.passwordInputContainer}>
@@ -23,9 +55,9 @@ const ResetPasswordScreen = ({ navigation }) => {
             onChangeText={setNewPassword}
             placeholder="Enter new password"
           />
-          <TouchableOpacity onPress={togglePasswordVisibility}>
+          {/* <TouchableOpacity onPress={togglePasswordVisibility}>
             <Icon name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="gray" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
 
@@ -39,22 +71,14 @@ const ResetPasswordScreen = ({ navigation }) => {
             onChangeText={setConfirmPassword}
             placeholder="Confirm new password"
           />
-          <TouchableOpacity onPress={togglePasswordVisibility}>
+          {/* <TouchableOpacity onPress={togglePasswordVisibility}>
             <Icon name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="gray" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.goBack()}>
-          <Text style={styles.cancelButtonText}>CANCEL</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.resetButton} onPress={() => {
-          navigation.navigate('DashboardScreen');
-        }}>
-          <Text style={styles.resetButtonText}>RESET</Text>
-        </TouchableOpacity>
-      </View>
+      <Footer buttonProps={footerProps}/>
+
     </View>
   );
 };
@@ -66,10 +90,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   header: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 20,
+    color: 'black',
   },
   inputContainer: {
     marginBottom: 15,
@@ -82,19 +107,23 @@ const styles = StyleSheet.create({
   passwordInputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#c2d1a0',
+    // borderWidth: 1,
+    // borderColor: '#c2d1a0',
     borderRadius: 10,
-    padding: 10,
+    padding: 1,
   },
   input: {
     flex: 1,
     fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#A1A241',
+    borderRadius: 5,
+    color: 'black',
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 490,
+    marginTop: 530,
   },
   cancelButton: {
     flex: 1,

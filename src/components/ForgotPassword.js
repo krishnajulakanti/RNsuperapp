@@ -1,42 +1,62 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
 
 const ForgotPasswordScreen = ({ navigation }) => {
+
+  const headerProps = [
+    {
+      // size: 'default',
+      title: 'Forgot Password',
+      onPress: () => {
+        navigation.goBack();
+      },
+    },
+  ];
+  const footerProps = [
+    {
+      // size: 'default',
+      varient: 'secondary',
+      title: 'CANCEL',
+      onPress: () => {
+        navigation.goBack();
+      },
+    },
+    {
+      // size: 'default',
+      varient: 'primary',
+      title: 'PROCEED',
+      onPress: () => {
+        navigation.navigate('OtpVerificationScreen');
+      },
+    },
+  ];
+
   return (
     <View style={styles.container}>
+
+      <View style={styles.header}>
+      <Header buttonProps={headerProps}/>
+      </View>
 
       {/* Input Fields */}
         <Text style={styles.label}>LAN ID</Text>
         <TextInput
           style={styles.input}
-          placeholder="200171XXXXXXXXXX2348"
-          placeholderTextColor="#A1A241"
+          // placeholder="200171XXXXXXXXXX2348"
+          // placeholderTextColor="black"
         />
         <Text style={styles.label}>Registered Mobile No.</Text>
         <TextInput
           style={styles.input}
-          placeholder="9944455999"
-          placeholderTextColor="#A1A241"
+          // placeholder="9944455999"
+          // placeholderTextColor="black"
           keyboardType="phone-pad"
         />
 
-      {/* Buttons */}
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.cancelButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={styles.cancelButtonText}>CANCEL</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.proceedButton}
-          onPress={() => {
-            navigation.navigate('OtpVerificationScreen');
-          }}
-        >
-          <Text style={styles.proceedButtonText}>PROCEED</Text>
-        </TouchableOpacity>
-      </View>
+      <Footer buttonProps={footerProps}/>
+
     </View>
   );
 };
@@ -52,7 +72,9 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 20,
+    color: 'black',
   },
   backButton: {
     marginRight: 10,
@@ -87,6 +109,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     fontSize: 16,
     marginBottom: 20,
+    color: 'black',
   },
   buttonContainer: {
     flexDirection: 'row',
