@@ -1,22 +1,14 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 
 const Header = ({buttonProps}) => {
   return (
-    <View>
-        <FlatList
-        data={buttonProps} 
-        renderItem={({ item }) => (
-            <View>
-              <TouchableOpacity onPress={item.onPress} style={styles.backButton}>
+    <View style={styles.header}>
+              <TouchableOpacity onPress={ buttonProps.onPress} style={styles.backButton}>
+                <Text style={styles.backButtonText}>Back</Text>
               </TouchableOpacity>
-              <Text style={styles.headerText}>{item.title}</Text>
-          </View>
-        )}
-        scrollEnabled={false}
-        numColumns={2}
-      />
+              <Text style={styles.headerText}>{ buttonProps.title}</Text>
       </View>
   );
 };
@@ -35,8 +27,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   backButtonText: {
-    fontSize: 24,
-    color: '#2E6C50',
+    fontSize: 15,
+    color: 'black',
   },
   headerText: {
     fontSize: 20,

@@ -5,15 +5,14 @@ import Footer from '../components/common/Footer';
 
 const ForgotPasswordScreen = ({ navigation }) => {
 
-  const headerProps = [
+  const headerProps = 
     {
       // size: 'default',
       title: 'Forgot Password',
       onPress: () => {
         navigation.goBack();
       },
-    },
-  ];
+    };
   const footerProps = [
     {
       // size: 'default',
