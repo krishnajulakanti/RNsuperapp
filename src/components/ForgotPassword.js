@@ -75,13 +75,14 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   label: {
-    fontSize: 12,
-    color: '#A1A241',
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#666666',
     marginBottom: 5,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#A1A241',
+    borderColor: '#C3D600',
     borderRadius: 5,
     paddingHorizontal: 10,
     paddingVertical: 8,

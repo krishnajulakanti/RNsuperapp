@@ -1,13 +1,18 @@
+// import { Icon } from '@rneui/themed/dist/Icon';
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = ({buttonProps}) => {
   return (
     <View style={styles.header}>
       <View style={styles.backButton}>
       <TouchableOpacity onPress={buttonProps.onPress}>
-        <Text style={styles.backButtonText}>Back</Text>
+        <Text style={styles.backButtonText}>
+          {/* Back */}
+          {'\u2190'}
+          {/* <Icon name="arrow-back-outline" size={24} color="#333" /> */}
+        </Text>
       </TouchableOpacity>
       </View>
       <View style={styles.title}>
@@ -27,7 +32,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-beween',
     marginBottom: 20,
     paddingHorizontal: 20,
-    color: 'black',
+    color: '#333333',
     height: 80,
     backgroundColor: '#DDDDDD',
   },
@@ -35,8 +40,9 @@ const styles = StyleSheet.create({
     marginRight: 90,
   },
   backButtonText: {
-    fontSize: 15,
-    color: 'black',
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#333333',
   },
   headerText: {
     fontSize: 20,
