@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import Icon from 'react-native-vector-icons/Ionicons';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const ResetPasswordScreen = ({ navigation }) => {
   const [newPassword, setNewPassword] = useState('');
@@ -13,15 +14,14 @@ const ResetPasswordScreen = ({ navigation }) => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const headerProps = [
+  const headerProps = 
     {
       // size: 'default',
       title: 'Forgot Password',
       onPress: () => {
         navigation.goBack();
       },
-    },
-  ];
+    };
 
   const footerProps = [
     {
@@ -40,61 +40,54 @@ const ResetPasswordScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Header buttonProps={headerProps} />
 
-      <View style={styles.header}>
-        <Header buttonProps={headerProps}/>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>New Password</Text>
-        <View style={styles.passwordInputContainer}>
-          <TextInput
-            style={styles.input}
-            secureTextEntry={!isPasswordVisible}
-            value={newPassword}
-            onChangeText={setNewPassword}
-            placeholder="Enter new password"
-          />
-          {/* <TouchableOpacity onPress={togglePasswordVisibility}>
+      <View style={styles.bodyContainer}>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>New Password</Text>
+          <View style={styles.passwordInputContainer}>
+            <TextInput
+              style={styles.input}
+              secureTextEntry={!isPasswordVisible}
+              value={newPassword}
+              onChangeText={setNewPassword}
+              placeholder="Enter new password"
+            />
+            {/* <TouchableOpacity onPress={togglePasswordVisibility}>
             <Icon name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="gray" />
           </TouchableOpacity> */}
+          </View>
+        </View>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Confirm New Password</Text>
+          <View style={styles.passwordInputContainer}>
+            <TextInput
+              style={styles.input}
+              secureTextEntry={!isPasswordVisible}
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+              placeholder="Confirm new password"
+            />
+            {/* <TouchableOpacity onPress={togglePasswordVisibility}>
+            <Icon name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="gray" />
+          </TouchableOpacity> */}
+          </View>
         </View>
       </View>
 
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Confirm New Password</Text>
-        <View style={styles.passwordInputContainer}>
-          <TextInput
-            style={styles.input}
-            secureTextEntry={!isPasswordVisible}
-            value={confirmPassword}
-            onChangeText={setConfirmPassword}
-            placeholder="Confirm new password"
-          />
-          {/* <TouchableOpacity onPress={togglePasswordVisibility}>
-            <Icon name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="gray" />
-          </TouchableOpacity> */}
-        </View>
-      </View>
-
-      <Footer buttonProps={footerProps}/>
-
+      <Footer buttonProps={footerProps} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 24,
     backgroundColor: '#F5F5F5',
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-    color: 'black',
+  bodyContainer: {
+    height: 710,
+    paddingHorizontal: 20
   },
   inputContainer: {
     marginBottom: 15,

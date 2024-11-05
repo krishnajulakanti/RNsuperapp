@@ -34,12 +34,9 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Header buttonProps={headerProps} />
 
-      <View style={styles.header}>
-      <Header buttonProps={headerProps}/>
-      </View>
-
-      {/* Input Fields */}
+      <View style={styles.bodyContainer}>
         <Text style={styles.label}>LAN ID</Text>
         <TextInput
           style={styles.input}
@@ -53,9 +50,9 @@ const ForgotPasswordScreen = ({ navigation }) => {
           // placeholderTextColor="black"
           keyboardType="phone-pad"
         />
+      </View>
 
-      <Footer buttonProps={footerProps}/>
-
+      <Footer buttonProps={footerProps} />
     </View>
   );
 };
@@ -64,30 +61,12 @@ export default ForgotPasswordScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#F5F5F5',
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-    color: 'black',
-  },
-  backButton: {
-    marginRight: 10,
-  },
-  backButtonText: {
-    fontSize: 24,
-    color: '#2E6C50',
-  },
-  headerText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
-    flex: 1,
+  bodyContainer: {
+    height: 710,
+    paddingHorizontal: 20,
+    // borderRadius: 40,
   },
   inputContainer: {
     backgroundColor: '#FFF',
@@ -109,37 +88,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 20,
     color: 'black',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 550,
-  },
-  cancelButton: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#2E6C50',
-    borderRadius: 25,
-    paddingVertical: 15,
-    marginRight: 10,
-    alignItems: 'center',
-  },
-  cancelButtonText: {
-    color: '#2E6C50',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  proceedButton: {
-    flex: 1,
-    backgroundColor: '#2E6C50',
-    borderRadius: 25,
-    paddingVertical: 15,
-    marginLeft: 10,
-    alignItems: 'center',
-  },
-  proceedButtonText: {
-    color: '#FFF',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
+  }
 });
