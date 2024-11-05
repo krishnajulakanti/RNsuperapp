@@ -11,6 +11,15 @@ const loanData = [
     emiAmount: '33,694.00',
     status: 'Active',
   },
+  {
+    id: '2',
+    lanId: '352171XXXXXXXX2348',
+    tenure: 48,
+    loanAmount: '20,00,000.00',
+    emiAmount: '38,694.00',
+    status: 'Active',
+  },
+  
   // Add more loan entries here
 ];
 
@@ -34,19 +43,20 @@ const DashboardScreen = () => {
   );
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Loan Against Securities</Text>
-      </View>
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.expandable}>
+        <Text style={styles.expandableText}>Loan Against Securities</Text>
       <FlatList
         data={loanData}
         renderItem={renderLoanItem}
         keyExtractor={(item) => item.id}
       />
+      </TouchableOpacity>
       <TouchableOpacity style={styles.expandable}>
         <Text style={styles.expandableText}>Home Loans</Text>
       </TouchableOpacity>
       {/* Footer Navigation */}
+
       <View style={styles.footer}>
         <TouchableOpacity style={styles.footerButton}>
           <Text style={styles.footerText}>Dashboard</Text>
@@ -64,7 +74,7 @@ const DashboardScreen = () => {
           <Text style={styles.footerText}>Menu</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
