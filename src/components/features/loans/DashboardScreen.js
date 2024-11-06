@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { ListItem, Avatar } from '@rneui/themed'
+
 import LoanHeader from '../common/LoanHeader';
-import BottomNavigation from '../common/BottomNavigation';
+// import BottomNavigation from '../common/BottomNavigation';
 
 // Sample loan data
 const loanData = [
@@ -24,8 +26,21 @@ const loanData = [
 
   // Add more loan entries here
 ];
+const accordionList = [
+  {
+    id: 1,
+    name: 'Loans Against Securities',
+  },
+  {
+    id: 2,
+    name: 'Home Loans',
+  },
+];
 
 const DashboardScreen = () => {
+
+  const [expanded, setExpanded] = useState(true);
+
   const renderLoanItem = ({ item }) => (
     <View style={styles.loanItem}>
       <Text style={styles.label}>LAN ID</Text>
@@ -52,22 +67,32 @@ const DashboardScreen = () => {
       </View>
 
       <View style={styles.mainContainer}>
-        <TouchableOpacity style={styles.expandable}>
-          <Text style={styles.expandableText}>Loan Against Securities</Text>
-          <FlatList
-            data={loanData}
-            renderItem={renderLoanItem}
-            keyExtractor={(item) => item.id}
-          />
-        </TouchableOpacity>
-        {/* <TouchableOpacity style={styles.expandable}>
-        <Text style={styles.expandableText}>Home Loans</Text>
-      </TouchableOpacity> */}
+        {accordionList.map((item, index) => {
+          <View key={index}>
+            <ListItem.Accordion
+              content={
+                <ListItem.Content>
+                  <ListItem.Title>{item.name}</ListItem.Title>
+                </ListItem.Content>
+              }
+              isExpanded={expanded}
+              onPress={() => {
+                setExpanded(!expanded);
+              }}
+            >
+              {/* {loanData.map((l, i) => (
+                <ListItem key={l.lanId}>
+                  <ListItem.Content>
+                    <ListItem.Title>{l.lanId}</ListItem.Title>
+                  </ListItem.Content>
+                  <ListItem.Chevron />
+                </ListItem>
+              ))} */}
+            </ListItem.Accordion>
+          </View>
+        })}
       </View>
 
-      <View style={{ position: 'absolute', bottom: 0, }}>
-        <BottomNavigation />
-      </View>
     </View>
   );
 };

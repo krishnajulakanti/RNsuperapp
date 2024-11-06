@@ -1,25 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import DashboardScreen from '../loans/DashboardScreen';
+import MenuScreen from '../loans/MenuScreen';
+
+const BottomTab = createBottomTabNavigator();
 
 const BottomNavigation = () => {
   return (
-    <View style={styles.footer}>
-      <TouchableOpacity style={styles.footerButton}>
-        <Text style={styles.footerText}>Dashboard</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.footerButton}>
-        <Text style={styles.footerText}>Offers</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.footerButton}>
-        <Text style={styles.footerText}>Pay EMI</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.footerButton}>
-        <Text style={styles.footerText}>EMI Calc</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.footerButton}>
-        <Text style={styles.footerText}>Menu</Text>
-      </TouchableOpacity>
-    </View>
+      <BottomTab.Navigator initialRouteName='DashboardScreen' screenOptions={{ headerShown: false }}>
+        <BottomTab.Screen name='Dashboard' component={DashboardScreen}/>
+        <BottomTab.Screen name='Menu' component={MenuScreen}/>
+      </BottomTab.Navigator>
   );
 };
 
