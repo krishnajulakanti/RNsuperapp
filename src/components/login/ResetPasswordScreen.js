@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const ResetPasswordScreen = ({ navigation }) => {
@@ -14,27 +14,27 @@ const ResetPasswordScreen = ({ navigation }) => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const headerProps = 
-    {
-      // size: 'default',
-      title: 'Forgot Password',
-      onPress: () => {
-        navigation.goBack();
-      },
-    };
+  const headerProps =
+  {
+    // size: 'default',
+    title: 'Forgot Password',
+    onPress: () => {
+      navigation.goBack();
+    },
+  };
 
   const footerProps = [
     {
       // size: 'default',
       varient: 'secondary',
       title: 'CANCEL',
-      onPress:  () => { navigation.goBack();},
+      onPress: () => { navigation.goBack(); },
     },
     {
       // size: 'default',
       varient: 'primary',
       title: 'RESET',
-      onPress:  () => { navigation.navigate('DashboardScreen');},
+      onPress: () => { navigation.navigate('DashboardScreen'); },
     },
   ];
 
@@ -51,7 +51,6 @@ const ResetPasswordScreen = ({ navigation }) => {
               secureTextEntry={!isPasswordVisible}
               value={newPassword}
               onChangeText={setNewPassword}
-              placeholder="Enter new password"
             />
             {/* <TouchableOpacity onPress={togglePasswordVisibility}>
             <Icon name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="gray" />
@@ -67,7 +66,6 @@ const ResetPasswordScreen = ({ navigation }) => {
               secureTextEntry={!isPasswordVisible}
               value={confirmPassword}
               onChangeText={setConfirmPassword}
-              placeholder="Confirm new password"
             />
             {/* <TouchableOpacity onPress={togglePasswordVisibility}>
             <Icon name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="gray" />

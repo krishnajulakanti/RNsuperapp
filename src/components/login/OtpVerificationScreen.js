@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 
 const OtpVerificationScreen = ({ navigation }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
@@ -33,26 +33,26 @@ const OtpVerificationScreen = ({ navigation }) => {
   };
 
   const headerProps =
-    {
-      // size: 'default',
-      title: 'Forgot Password',
-      onPress: () => {
-        navigation.goBack();
-      },
-    };
+  {
+    // size: 'default',
+    title: 'Forgot Password',
+    onPress: () => {
+      navigation.goBack();
+    },
+  };
 
   const footerProps = [
     {
       // size: 'default',
       varient: 'secondary',
       title: 'CANCEL',
-      onPress:  () => { navigation.goBack();},
+      onPress: () => { navigation.goBack(); },
     },
     {
       // size: 'default',
       varient: 'primary',
       title: 'SUBMIT',
-      onPress:  () => { navigation.navigate('ResetPasswordScreen');},
+      onPress: () => { navigation.navigate('ResetPasswordScreen'); },
     },
   ];
 
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     textAlign: 'center',
     fontSize: 20,
+    color: 'black'
   },
   verifyingText: {
     textAlign: 'center',

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,7 +7,7 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import Logo from '../assets/images/SMFG-Logo.svg';
+import Logo from '../../assets/images/SMFG-Logo.svg';
 
 const LoginScreen = ({ navigation }) => {
   const [lanId, setLanId] = useState('');

@@ -1,18 +1,18 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 
 const ForgotPasswordScreen = ({ navigation }) => {
 
-  const headerProps = 
-    {
-      // size: 'default',
-      title: 'Forgot Password',
-      onPress: () => {
-        navigation.goBack();
-      },
-    };
+  const headerProps =
+  {
+    // size: 'default',
+    title: 'Forgot Password',
+    onPress: () => {
+      navigation.goBack();
+    },
+  };
   const footerProps = [
     {
       // size: 'default',
@@ -40,8 +40,8 @@ const ForgotPasswordScreen = ({ navigation }) => {
         <Text style={styles.label}>LAN ID</Text>
         <TextInput
           style={styles.input}
-          // placeholder="200171XXXXXXXXXX2348"
-          // placeholderTextColor="black"
+        // placeholder="200171XXXXXXXXXX2348"
+        // placeholderTextColor="black"
         />
         <Text style={styles.label}>Registered Mobile No.</Text>
         <TextInput

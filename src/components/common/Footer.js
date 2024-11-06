@@ -2,20 +2,20 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 
 
-const Footer = ({buttonProps}) => {
+const Footer = ({ buttonProps }) => {
   return (
     <View>
-        <FlatList data={buttonProps} renderItem={({ item }) => (
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity onPress={item.onPress} 
-              style={ item.varient === 'secondary'? styles.cancelButton: styles.proceedButton}>
-                <Text style={item.varient === 'secondary'? styles.cancelButtonText: styles.proceedButtonText}>
-                  {item.title}</Text>
-              </TouchableOpacity>
-          </View>
-        )}
-          scrollEnabled={false} numColumns={2}
-        />
+      <FlatList data={buttonProps} renderItem={({ item }) => (
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={item.onPress}
+            style={item.varient === 'secondary' ? styles.cancelButton : styles.proceedButton}>
+            <Text style={item.varient === 'secondary' ? styles.cancelButtonText : styles.proceedButtonText}>
+              {item.title}</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+        scrollEnabled={false} numColumns={2}
+      />
     </View>
   );
 };

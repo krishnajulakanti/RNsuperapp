@@ -3,17 +3,17 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Header = ({buttonProps}) => {
+const Header = ({ buttonProps }) => {
   return (
     <View style={styles.header}>
       <View style={styles.backButton}>
-      <TouchableOpacity onPress={buttonProps.onPress}>
-        <Text style={styles.backButtonText}>
-          {/* Back */}
-          {'\u2190'}
-          {/* <Icon name="arrow-back-outline" size={24} color="#333" /> */}
-        </Text>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={buttonProps.onPress}>
+          <Text style={styles.backButtonText}>
+            {/* Back */}
+            {'\u2190'}
+            {/* <Icon name="arrow-back-outline" size={24} color="#333" /> */}
+          </Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.title}>
         <Text style={styles.headerText}>{buttonProps.title}</Text>

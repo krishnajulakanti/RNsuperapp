@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import LoanHeader from '../common/LoanHeader';
+import BottomNavigation from '../common/BottomNavigation';
 
 // Sample loan data
 const loanData = [
@@ -19,7 +21,7 @@ const loanData = [
     emiAmount: '38,694.00',
     status: 'Active',
   },
-  
+
   // Add more loan entries here
 ];
 
@@ -44,35 +46,27 @@ const DashboardScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.expandable}>
-        <Text style={styles.expandableText}>Loan Against Securities</Text>
-      <FlatList
-        data={loanData}
-        renderItem={renderLoanItem}
-        keyExtractor={(item) => item.id}
-      />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.expandable}>
-        <Text style={styles.expandableText}>Home Loans</Text>
-      </TouchableOpacity>
-      {/* Footer Navigation */}
 
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerText}>Dashboard</Text>
+      <View style={styles.header}>
+        <LoanHeader />
+      </View>
+
+      <View style={styles.mainContainer}>
+        <TouchableOpacity style={styles.expandable}>
+          <Text style={styles.expandableText}>Loan Against Securities</Text>
+          <FlatList
+            data={loanData}
+            renderItem={renderLoanItem}
+            keyExtractor={(item) => item.id}
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerText}>Offers</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerText}>Pay EMI</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerText}>EMI Calc</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerText}>Menu</Text>
-        </TouchableOpacity>
+        {/* <TouchableOpacity style={styles.expandable}>
+        <Text style={styles.expandableText}>Home Loans</Text>
+      </TouchableOpacity> */}
+      </View>
+
+      <View style={{ position: 'absolute', bottom: 0, }}>
+        <BottomNavigation />
       </View>
     </View>
   );
@@ -84,17 +78,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F5',
-  },
-  header: {
-    padding: 16,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  headerText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
   },
   loanItem: {
     backgroundColor: '#fff',
@@ -137,17 +120,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
   },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 12,
-    backgroundColor: '#EDEDED',
-  },
-  footerButton: {
-    alignItems: 'center',
-  },
-  footerText: {
-    fontSize: 12,
-    color: '#333',
-  },
+
 });
