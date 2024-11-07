@@ -24,11 +24,14 @@ const Dashboard = () => {
   const renderLoanItem = (item) => {
     return (
       <View style={styles.loanItem}>
-        <View style={{ paddingHorizontal: 16, paddingVertical: 20 }}>
-          <Text style={styles.label}>LAN ID</Text>
-          <Text style={styles.value}>{item?.lanId}</Text>
+        <View style={styles.lanIdCard}>
+          <View>
+            <Text style={styles.label}>LAN ID</Text>
+            <Text style={styles.value}>{item?.lanId}</Text>
+          </View>
+          <Text style={styles.status}>{item?.status}</Text>
         </View>
-        <View style={{ backgroundColor: '#999999', paddingHorizontal: 16, paddingVertical: 6 }}>
+        <View style={styles.tenureCard}>
           <View style={styles.row}>
             <Text style={styles.label}>Tenure</Text>
             <Text style={styles.label}>Loan Amount</Text>
@@ -40,7 +43,6 @@ const Dashboard = () => {
             <Text style={styles.value}>{item?.emiAmount}</Text>
           </View>
         </View>
-        {/* <Text style={styles.status}>{item?.status}</Text> */}
       </View>
     );
   };
@@ -75,7 +77,7 @@ const Dashboard = () => {
   return (
     <View style={styles.container}>
 
-      <View style={styles.header}>
+      <View>
         <LoanHeader />
       </View>
 
@@ -85,7 +87,7 @@ const Dashboard = () => {
             <ListItem.Accordion style={styles.accordionCard}
               content={
                 <ListItem.Content>
-                  <ListItem.Title style={{ fontWeight: 'bold', fontSize: 20 }}>{item.name}</ListItem.Title>
+                  <ListItem.Title style={styles.accordionTitle}>{item.name}</ListItem.Title>
                 </ListItem.Content>
               }
               isExpanded={expanded}
@@ -98,7 +100,6 @@ const Dashboard = () => {
                   <ListItem.Content>
                     {renderLoanItem(l)}
                   </ListItem.Content>
-                  <ListItem.Chevron />
                 </ListItem>
               ))}
             </ListItem.Accordion>
@@ -123,27 +124,42 @@ const styles = StyleSheet.create({
     color: 'black',
     // height:200
   },
+  loanItem: {
+    backgroundColor: '#FFFFFF',
+    // marginLeft: 0,
+    borderRadius: 10,
+    shadowColor: '#999999',
+    shadowOpacity: 0.1,
+    shadowOffset: {width: 0, height: 2},
+    shadowRadius: 8,
+    elevation: 10,
+  },
   accordionCard: {
     backgroundColor: '#FFFFFF',
     marginTop: 20,
     marginVertical: 1,
     marginHorizontal: 12,
     borderRadius: 10,
-    shadowColor: 'red',
+    shadowColor: '#999999',
     shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowRadius: 8,
     elevation: 10,
   },
-  loanItem: {
-    backgroundColor: '#FFFFFF',
-    // marginLeft: 0,
-    borderRadius: 10,
-    shadowColor: 'green',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 10,
+  accordionTitle: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#333333',
+  },
+  lanIdCard: {
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    flexDirection: 'row',
+  },
+  tenureCard: {
+    backgroundColor: '#DDDDDD',
+    paddingHorizontal: 16,
+    paddingVertical: 6,
   },
   row: {
     flexDirection: 'row',
@@ -151,20 +167,27 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   label: {
-    color: '#666',
+    color: '#666666',
     fontSize: 14,
     paddingRight: 50,
   },
   value: {
-    color: '#333',
+    color: '#333333',
     fontSize: 16,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
   },
   status: {
-    marginTop: 8,
-    alignSelf: 'flex-end',
-    color: '#4CAF50',
-    fontWeight: 'bold',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    backgroundColor: '#D3FFCE',
+    color: '#666666',
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 0,
   },
   expandable: {
     padding: 16,
@@ -173,10 +196,9 @@ const styles = StyleSheet.create({
   },
   expandableText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: '#333',
   },
-
 });
 
 

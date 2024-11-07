@@ -6,17 +6,21 @@ import OtpVerificationScreen from '../components/login/OtpVerificationScreen';
 import ForgotPasswordScreen from '../components/login/ForgotPassword';
 import ResetPasswordScreen from '../components/login/ResetPasswordScreen';
 import BottomNavigation from '../components/features/common/BottomNavigation';
+// import FeatureNavigation from '../components/features/common/FeatureNavigation';
+import MyProfile from '../components/features/loans/MyProfile';
+
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="BottomNavigation" screenOptions={{ headerShown: false }}>
+    <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
       <Stack.Screen name="OtpVerificationScreen" component={OtpVerificationScreen} />
       <Stack.Screen name="ResetPasswordScreen" component={ResetPasswordScreen} />
       <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
       {/* <Stack.Screen name="FeatureNavigation" component={FeatureNavigation} /> */}
+      <Stack.Screen name="MyProfile" component={MyProfile} />
     </Stack.Navigator>
   );
 };

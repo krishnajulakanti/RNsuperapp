@@ -3,68 +3,65 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from '
 
 import LoanHeader from '../common/LoanHeader';
 
-const Menu = () => {
-    return (
-        <View style={styles.container}>
+const menuItems = [
+  { title: 'MyProfile', navigateTo: 'MyProfile' },
+  { title: 'My Documents', navigateTo: 'My Documents' },
+  { title: 'Service Requests', navigateTo: 'Service Requests' },
+  { title: 'Branch Locator', navigateTo: 'Branch Locator' },
+  { title: 'Forms', navigateTo: 'Forms' },
+  { title: 'My Leads', navigateTo: 'My Leads' },
+  { title: 'DNC Registration', navigateTo: 'DNC Registration' },
+  { title: 'Support', navigateTo: 'Support' },
+  { title: 'FAQ', navigateTo: 'FAQ' },
+  { title: 'Terms of Use', navigateTo: 'Terms of Use' },
+];
 
-      <View style={styles.header}>
+const Menu = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+
+      <View>
         <LoanHeader />
       </View>
 
-      <View style={styles.mainContainer}>
-        
-      </View>
-
+      <ScrollView style={{borderTopLeftRadius: 20}}>
+      {menuItems.map((item, index) => (
+        <TouchableOpacity
+          key={index}
+          style={styles.card}
+          onPress={() => navigation.navigate('MyProfile')}
+        >
+          <Text style={styles.cardText}>{item.title}</Text>
+        </TouchableOpacity>
+      ))}
+      </ScrollView>
     </View>
-    );
+  );
 };
 
 export default Menu;
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#F5F5F5',
-    },
-    loanItem: {
-      backgroundColor: '#fff',
-      marginVertical: 8,
-      padding: 16,
-      borderRadius: 8,
-      shadowColor: '#000',
-      shadowOpacity: 0.1,
-      shadowOffset: { width: 0, height: 2 },
-      shadowRadius: 8,
-      elevation: 2,
-    },
-    row: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginTop: 8,
-    },
-    label: {
-      color: '#666',
-      fontSize: 14,
-    },
-    value: {
-      color: '#333',
-      fontSize: 16,
-      fontWeight: 'bold',
-    },
-    status: {
-      marginTop: 8,
-      alignSelf: 'flex-end',
-      color: '#4CAF50',
-      fontWeight: 'bold',
-    },
-    expandable: {
-      padding: 16,
-      backgroundColor: '#fff',
-      marginTop: 8,
-    },
-    expandableText: {
-      fontSize: 16,
-      fontWeight: 'bold',
-      color: '#333',
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  card: {
+    backgroundColor: '#fff',
+    paddingVertical: 13,
+    marginRight: 16,
+    marginLeft: 16,
+    marginVertical: 8,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  cardText: {
+    fontSize: 20,
+    color: '#333333',
+    paddingLeft: 20
+  },
+});

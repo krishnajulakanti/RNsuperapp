@@ -34,7 +34,7 @@ const ResetPasswordScreen = ({ navigation }) => {
       // size: 'default',
       varient: 'primary',
       title: 'RESET',
-      onPress: () => { navigation.navigate('DashboardScreen'); },
+      onPress: () => { navigation.navigate('Dashboard'); },
     },
   ];
 
