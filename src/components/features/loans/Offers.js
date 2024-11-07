@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 
-const MenuScreen = () => {
+const Offers = () => {
     return (
-        <Text>MenuScreen</Text>
+        <Text>Offers Screen</Text>
     )
 };
 
-export default MenuScreen;
+export default Offers;
