@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     paddingVertical: 13,
+    paddingHorizontal: 13,
     marginRight: 16,
     marginLeft: 16,
     marginVertical: 8,
@@ -71,6 +72,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#154433',
     paddingLeft: 20,
-    // marginHorizontal: 10
   },
 });

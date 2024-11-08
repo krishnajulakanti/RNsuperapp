@@ -15,13 +15,62 @@ const BottomTab = createBottomTabNavigator();
 
 const BottomNavigation = () => {
   return (
-    <BottomTab.Navigator initialRouteName='Dashboard' screenOptions={{ headerShown: false, tabBarStyle: styles.footer }}>
-      <BottomTab.Screen name='Dashboard' component={Dashboard} />
-      <BottomTab.Screen name='Offers' component={Menu} />
-      <BottomTab.Screen name='Pay EMI' component={Menu} />
-      <BottomTab.Screen name='EMI Calc' component={Menu} />
-      <BottomTab.Screen name='Menu' component={Menu} />
+    <BottomTab.Navigator
+      initialRouteName="Dashboard"
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: styles.footer,
+        tabBarIconStyle: { marginTop: 5  }, 
+        tabBarActiveTintColor: '#004831', // Adjust icon positioning if needed
+      }}
+    >
+      <BottomTab.Screen
+        name="Dashboard"
+        component={Dashboard}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="dashboard" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Offers"
+        component={Menu}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="local-offer" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Pay EMI"
+        component={Menu}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="payment" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="EMI Calc"
+        component={Menu}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="calculate" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Menu"
+        component={Menu}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="menu" size={size} color={color} />
+          ),
+        }}
+      />
     </BottomTab.Navigator>
+
   );
 };
 
@@ -34,6 +83,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingHorizontal: 15,
     fontSize: 20,
-    color: '#333',
+    color: '#004831',
   },
 });

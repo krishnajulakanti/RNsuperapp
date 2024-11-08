@@ -5,7 +5,7 @@ import Logo from '../../../assets/images/SMFG-Logo.svg';
 const LoanHeader = () => {
   return (
     <View style={styles.header}>
-      <Logo width={130} height={70} />
+      <Logo width={130} height={50} />
     </View>
   );
 };
@@ -14,7 +14,7 @@ export default LoanHeader;
 
 const styles = StyleSheet.create({
   header: {
-    height: 95,
+    height: 75,
     padding: 16,
     backgroundColor: '#DDDDDD',
     borderBottomWidth: 1,
