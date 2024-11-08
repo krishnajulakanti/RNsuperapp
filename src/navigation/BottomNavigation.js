@@ -2,11 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Dashboard from '../loans/Dashboard';
-import Offers from '../loans/Offers';
-import PayEmi from '../loans/PayEmi';
-import EmiCalculator from '../loans/EmiCalculator';
-import Menu from '../loans/Menu';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import Dashboard from '../components/features/loans/Dashboard';
+import Offers from '../components/features/loans/Offers';
+import PayEmi from '../components/features/loans/PayEmi';
+import EmiCalculator from '../components/features/loans/EmiCalculator';
+import Menu from '../components/features/loans/Menu';
 
 const BottomTab = createBottomTabNavigator();
 

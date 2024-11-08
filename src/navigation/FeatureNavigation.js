@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import MyProfile from '../../features/loans/MyProfile';
+import MyProfile from '../components/features/loans/MyProfile';
 
 const Stack = createNativeStackNavigator();
 

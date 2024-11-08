@@ -5,7 +5,7 @@ import LoginScreen from '../components/login/LoginScreen';
 import OtpVerificationScreen from '../components/login/OtpVerificationScreen';
 import ForgotPasswordScreen from '../components/login/ForgotPassword';
 import ResetPasswordScreen from '../components/login/ResetPasswordScreen';
-import BottomNavigation from '../components/features/common/BottomNavigation';
+import BottomNavigation from './BottomNavigation';
 // import FeatureNavigation from '../components/features/common/FeatureNavigation';
 import MyProfile from '../components/features/loans/MyProfile';
 

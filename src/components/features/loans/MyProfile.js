@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native';
 
-// import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import LoanHeader from '../common/LoanHeader';
 
 const MyProfile = ({ navigation }) => {
     const [isFingerprintEnabled, setIsFingerprintEnabled] = React.useState(true);
@@ -10,13 +13,17 @@ const MyProfile = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            {/* Profile Header */}
+
+            <View>
+                <LoanHeader />
+            </View>
+
             <View style={styles.card}>
-                {/* <FontAwesome name="user-circle-o" size={50} color="#2f4f4f" /> */}
+                <FontAwesome name="user-circle-o" size={50} color="#2f4f4f" />
                 <View style={styles.headerContent}>
                     <Text style={styles.name}>John Smith</Text>
                 </View>
-                {/* <MaterialIcons name="edit" size={24} color="#6b8e23" style={styles.icon} /> */}
+                <MaterialIcons name="edit" size={24} color="#6b8e23" style={styles.icon} />
             </View>
 
             {/* Menu Items */}
@@ -41,9 +48,9 @@ const MyProfile = ({ navigation }) => {
                         }
                     }}
                 >
-                    {/* <MaterialIcons name={item.icon} size={24} color="#2f4f4f" /> */}
+                    <MaterialIcons name={item.icon} size={24} color="#2f4f4f" />
                     <Text style={styles.cardText}>{item.label}</Text>
-                    {/* {item.isSwitch ? (
+                    {item.isSwitch ? (
                         <Switch
                             value={isFingerprintEnabled}
                             onValueChange={toggleFingerprint}
@@ -51,7 +58,7 @@ const MyProfile = ({ navigation }) => {
                         />
                     ) : (
                         <MaterialIcons name="edit" size={18} color="#6b8e23" style={styles.icon} />
-                    )} */}
+                    )}
                 </TouchableOpacity>
             ))}
         </View>
@@ -63,14 +70,15 @@ export default MyProfile;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 16,
         backgroundColor: '#fff',
     },
     card: {
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#fff',
-        padding: 16,
+        paddingVertical: 13,
+        marginRight: 16,
+        marginLeft: 16,
         marginVertical: 8,
         borderRadius: 8,
         shadowColor: '#000',
@@ -90,9 +98,9 @@ const styles = StyleSheet.create({
     },
     cardText: {
         flex: 1,
-        marginLeft: 10,
+        paddingLeft: 20,
         fontSize: 16,
-        color: '#2f4f4f',
+        color: '#333333',
     },
     icon: {
         marginLeft: 'auto',

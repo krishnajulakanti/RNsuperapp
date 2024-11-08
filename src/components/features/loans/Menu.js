@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 import LoanHeader from '../common/LoanHeader';
 
 const menuItems = [
@@ -24,16 +27,21 @@ const Menu = ({ navigation }) => {
         <LoanHeader />
       </View>
 
-      <ScrollView style={{borderTopLeftRadius: 20}}>
-      {menuItems.map((item, index) => (
-        <TouchableOpacity
-          key={index}
-          style={styles.card}
-          onPress={() => navigation.navigate('MyProfile')}
-        >
-          <Text style={styles.cardText}>{item.title}</Text>
-        </TouchableOpacity>
-      ))}
+      <ScrollView style={{ borderTopLeftRadius: 20 }}>
+        {menuItems.map((item, index) => (
+          <View>
+            <TouchableOpacity
+              key={index}
+              style={styles.card}
+              onPress={() => navigation.navigate('MyProfile')}
+            >
+              <View style={{flexDirection: 'row'}}>
+                <MaterialIcons name="radio-button-unchecked" size={24} color="#2f4f4f" />
+                <Text style={styles.cardText}>{item.title}</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        ))}
       </ScrollView>
     </View>
   );
@@ -61,7 +69,8 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 20,
-    color: '#333333',
-    paddingLeft: 20
+    color: '#154433',
+    paddingLeft: 20,
+    // marginHorizontal: 10
   },
 });
