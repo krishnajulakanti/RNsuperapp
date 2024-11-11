@@ -59,7 +59,7 @@ const BottomNavigation = () => {
       />
       <BottomTab.Screen
         name="Pay EMI"
-        component={Menu}
+        component={PayEmi}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <View style={styles.iconWrapper}>
