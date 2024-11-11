@@ -7,16 +7,16 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LoanHeader from '../common/LoanHeader';
 
 const menuItems = [
-  { title: 'MyProfile', navigateTo: 'MyProfile' },
-  { title: 'My Documents', navigateTo: 'My Documents' },
-  { title: 'Service Requests', navigateTo: 'Service Requests' },
-  { title: 'Branch Locator', navigateTo: 'Branch Locator' },
-  { title: 'Forms', navigateTo: 'Forms' },
-  { title: 'My Leads', navigateTo: 'My Leads' },
-  { title: 'DNC Registration', navigateTo: 'DNC Registration' },
-  { title: 'Support', navigateTo: 'Support' },
-  { title: 'FAQ', navigateTo: 'FAQ' },
-  { title: 'Terms of Use', navigateTo: 'Terms of Use' },
+  { id: 1, title: 'MyProfile', navigateTo: 'MyProfile' },
+  { id: 2, title: 'My Documents'},
+  { id: 3, title: 'Service Requests' },
+  { id: 4, title: 'Branch Locator'},
+  { id: 5, title: 'Forms'},
+  { id: 6, title: 'My Leads'},
+  { id: 7, title: 'DNC Registration'},
+  { id: 8, title: 'Support'},
+  { id: 9, title: 'FAQ'},
+  { id: 10, title: 'Terms of Use'},
 ];
 
 const Menu = ({ navigation }) => {
@@ -29,11 +29,10 @@ const Menu = ({ navigation }) => {
 
       <ScrollView style={{ borderTopLeftRadius: 20 }}>
         {menuItems.map((item, index) => (
-          <View>
+          <View key={item.id}>
             <TouchableOpacity
-              key={index}
               style={styles.card}
-              onPress={() => navigation.navigate('MyProfile')}
+              onPress={() => item.navigateTo ? navigation.navigate(item.navigateTo): null }
             >
               <View style={{flexDirection: 'row'}}>
                 <MaterialIcons name="radio-button-unchecked" size={24} color="#2f4f4f" />
