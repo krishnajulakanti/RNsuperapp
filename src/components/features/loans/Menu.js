@@ -27,6 +27,7 @@ const Menu = ({ navigation }) => {
         <LoanHeader />
       </View>
 
+      <View style={styles.mainContainer}>
       <ScrollView style={{ borderTopLeftRadius: 20 }}>
         {menuItems.map((item, index) => (
           <View key={item.id}>
@@ -42,6 +43,7 @@ const Menu = ({ navigation }) => {
           </View>
         ))}
       </ScrollView>
+      </View>
     </View>
   );
 };
@@ -51,8 +53,15 @@ export default Menu;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#DDDDDD',
   },
+  mainContainer: {
+    backgroundColor: '#FFFFFF',
+    borderTopRightRadius: 25,
+    borderTopLeftRadius: 25,
+    height: 800,
+    paddingTop: 15
+},
   card: {
     backgroundColor: '#fff',
     paddingVertical: 13,

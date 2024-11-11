@@ -56,14 +56,14 @@ const Dashboard = () => {
       emiAmount: '33,694.00',
       status: 'Active',
     },
-    // {
-    //   id: '2',
-    //   lanId: '352171XXXXXXXX2348',
-    //   tenure: 48,
-    //   loanAmount: '20,00,000.00',
-    //   emiAmount: '38,694.00',
-    //   status: 'Active',
-    // },
+    {
+      id: '2',
+      lanId: '352171XXXXXXXX2348',
+      tenure: 48,
+      loanAmount: '20,00,000.00',
+      emiAmount: '38,694.00',
+      status: 'Active',
+    },
 
     // Add more loan entries here
   ];
@@ -81,7 +81,8 @@ const Dashboard = () => {
         <LoanHeader />
       </View>
 
-      <ScrollView style={styles.mainContainer}>
+      <View style={styles.mainContainer}>
+      <ScrollView>
         {accordions.map((item, index) => (
           <View key={index}>
             <ListItem.Accordion style={styles.accordionCard}
@@ -106,6 +107,7 @@ const Dashboard = () => {
           </View>
         ))}
       </ScrollView>
+      </View>
 
     </View>
   );
@@ -116,13 +118,15 @@ export default Dashboard;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#DDDDDD',
   },
   mainContainer: {
-    paddingHorizontal: 5,
-    // backgroundColor: '',
     color: 'black',
-    // height:200
+    backgroundColor: '#FFFFFF',
+    borderTopRightRadius: 25,
+    borderTopLeftRadius: 25,
+    height: 800,
+    paddingTop: 15
   },
   loanItem: {
     backgroundColor: '#FFFFFF',
