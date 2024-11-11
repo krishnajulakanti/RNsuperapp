@@ -1,7 +1,8 @@
 // import { Icon } from '@rneui/themed/dist/Icon';
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+// import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = ({ buttonProps }) => {
   return (
@@ -9,14 +10,13 @@ const Header = ({ buttonProps }) => {
       <View style={styles.backButton}>
         <TouchableOpacity onPress={buttonProps.onPress}>
           <Text style={styles.backButtonText}>
-            {/* Back */}
-            {'\u2190'}
-            {/* <Icon name="arrow-back-outline" size={24} color="#333" /> */}
+            <MaterialIcons name="keyboard-backspace" size={32} color="#004831" />
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.title}>
         <Text style={styles.headerText}>{buttonProps.title}</Text>
+        <View style={styles.topBar} />
       </View>
     </View>
   );
@@ -27,14 +27,18 @@ export default Header;
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    // display: 'flex',
     alignItems: 'center',
-    // justifyContent: 'space-beween',
     marginBottom: 20,
     paddingHorizontal: 20,
-    color: '#333333',
     height: 55,
     backgroundColor: '#DDDDDD',
+  },
+  topBar: {
+    position: 'absolute',
+    bottom: -10, // Position it at the top of the icon
+    width: '33%', // Full width of the icon wrapper
+    height: 2, // Height of the bar
+    backgroundColor: '#004831', // Color of the top bar
   },
   backButton: {
     marginRight: 90,
@@ -42,14 +46,12 @@ const styles = StyleSheet.create({
   backButtonText: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#333333',
+    color: '#004831',
   },
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
-    // textAlign: 'center',
-    // flex: 1,
+    color: '#004831',
   },
   title: {
     alignItems: 'center',

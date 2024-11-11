@@ -22,8 +22,9 @@ const BottomNavigation = () => {
         headerShown: false,
         tabBarStyle: styles.footer,
         tabBarIconStyle: { marginTop: 5 },
+        tabBarLabelStyle: styles.tabBarLabel, // Add this line
         tabBarActiveTintColor: '#004831',
-        tabBarInactiveTintColor: '#004831', // Color for inactive icons
+        tabBarInactiveTintColor: '#004831',
       }}
     >
       <BottomTab.Screen
@@ -40,6 +41,7 @@ const BottomNavigation = () => {
               />
             </View>
           ),
+          tabBarLabel: 'Dashboard', // Add label text explicitly if needed
         }}
       />
       <BottomTab.Screen
@@ -52,6 +54,7 @@ const BottomNavigation = () => {
               <MaterialIcons name="local-offer" size={size} color={color} />
             </View>
           ),
+          tabBarLabel: 'Offers', // Add label text explicitly if needed
         }}
       />
       <BottomTab.Screen
@@ -64,6 +67,7 @@ const BottomNavigation = () => {
               <MaterialIcons name="payment" size={size} color={color} />
             </View>
           ),
+          tabBarLabel: 'Pay EMI', // Add label text explicitly if needed
         }}
       />
       <BottomTab.Screen
@@ -76,6 +80,7 @@ const BottomNavigation = () => {
               <MaterialIcons name="calculate" size={size} color={color} />
             </View>
           ),
+          tabBarLabel: 'EMI Calc', // Add label text explicitly if needed
         }}
       />
       <BottomTab.Screen
@@ -88,6 +93,7 @@ const BottomNavigation = () => {
               <MaterialIcons name="menu" size={size} color={color} />
             </View>
           ),
+          tabBarLabel: 'Menu', // Add label text explicitly if needed
         }}
       />
     </BottomTab.Navigator>
@@ -100,8 +106,12 @@ const styles = StyleSheet.create({
   footer: {
     backgroundColor: '#F5F0EB',
     height: 80,
-    paddingBottom: 10,
+    paddingBottom: 15,
     paddingHorizontal: 15,
+  },
+  tabBarLabel: {
+    fontSize: 13, // Adjust this value for desired font size
+    fontWeight: '600', // Optional: Makes the label text bolder
   },
   iconWrapper: {
     alignItems: 'center',
@@ -109,7 +119,7 @@ const styles = StyleSheet.create({
   },
   topBar: {
     position: 'absolute',
-    top: -20, // Position it at the top of the icon
+    top: -14, // Position it at the top of the icon
     width: '100%', // Full width of the icon wrapper
     height: 5, // Height of the bar
     backgroundColor: '#004831', // Color of the top bar
