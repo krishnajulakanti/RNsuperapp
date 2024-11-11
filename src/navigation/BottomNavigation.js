@@ -21,16 +21,24 @@ const BottomNavigation = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.footer,
-        tabBarIconStyle: { marginTop: 5  },
+        tabBarIconStyle: { marginTop: 5 },
         tabBarActiveTintColor: '#004831',
+        tabBarInactiveTintColor: '#004831', // Color for inactive icons
       }}
     >
       <BottomTab.Screen
         name="Dashboard"
         component={Dashboard}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="view-dashboard-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View style={styles.iconWrapper}>
+              {focused && <View style={styles.topBar} />}
+              <MaterialCommunityIcons
+                name="view-dashboard-outline"
+                size={size}
+                color={color}
+              />
+            </View>
           ),
         }}
       />
@@ -38,8 +46,11 @@ const BottomNavigation = () => {
         name="Offers"
         component={Menu}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="local-offer" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View style={styles.iconWrapper}>
+              {focused && <View style={styles.topBar} />}
+              <MaterialIcons name="local-offer" size={size} color={color} />
+            </View>
           ),
         }}
       />
@@ -47,8 +58,11 @@ const BottomNavigation = () => {
         name="Pay EMI"
         component={Menu}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="payment" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View style={styles.iconWrapper}>
+              {focused && <View style={styles.topBar} />}
+              <MaterialIcons name="payment" size={size} color={color} />
+            </View>
           ),
         }}
       />
@@ -56,8 +70,11 @@ const BottomNavigation = () => {
         name="EMI Calc"
         component={Menu}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="calculate" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View style={styles.iconWrapper}>
+              {focused && <View style={styles.topBar} />}
+              <MaterialIcons name="calculate" size={size} color={color} />
+            </View>
           ),
         }}
       />
@@ -65,13 +82,15 @@ const BottomNavigation = () => {
         name="Menu"
         component={Menu}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="menu" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View style={styles.iconWrapper}>
+              {focused && <View style={styles.topBar} />}
+              <MaterialIcons name="menu" size={size} color={color} />
+            </View>
           ),
         }}
       />
     </BottomTab.Navigator>
-
   );
 };
 
@@ -83,7 +102,18 @@ const styles = StyleSheet.create({
     height: 80,
     paddingBottom: 10,
     paddingHorizontal: 15,
-    fontSize: 20,
-    color: '#004831',
+  },
+  iconWrapper: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  topBar: {
+    position: 'absolute',
+    top: -20, // Position it at the top of the icon
+    width: '100%', // Full width of the icon wrapper
+    height: 5, // Height of the bar
+    backgroundColor: '#004831', // Color of the top bar
+    borderBottomRightRadius: 10, // Rounded corners for a smooth appearance
+    borderBottomLeftRadius: 10, // Rounded corners for a smooth appearance
   },
 });
