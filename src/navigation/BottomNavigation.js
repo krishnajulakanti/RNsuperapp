@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from '
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Dashboard from '../components/features/loans/Dashboard';
@@ -20,8 +21,8 @@ const BottomNavigation = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.footer,
-        tabBarIconStyle: { marginTop: 5  }, 
-        tabBarActiveTintColor: '#004831', // Adjust icon positioning if needed
+        tabBarIconStyle: { marginTop: 5  },
+        tabBarActiveTintColor: '#004831',
       }}
     >
       <BottomTab.Screen
@@ -29,7 +30,7 @@ const BottomNavigation = () => {
         component={Dashboard}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="dashboard" size={size} color={color} />
+            <MaterialCommunityIcons name="view-dashboard-outline" size={size} color={color} />
           ),
         }}
       />
