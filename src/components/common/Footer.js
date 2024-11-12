@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 80,
     paddingHorizontal: 15,
-    paddingBottom: 10,
+    // paddingBottom: 10,
     backgroundColor: '#F5F0EB',
   },
   cancelButton: {

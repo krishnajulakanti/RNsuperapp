@@ -7,13 +7,7 @@ import { ListItem } from '@rneui/themed'
 
 import Header from '../../../common/Header';
 
-const headerProps =
-{
-  title: 'Pay EMI',
-  onPress: () => {
-    navigation.goBack();
-  },
-};
+
 
 const accordionList = [
   {
@@ -62,6 +56,7 @@ const PaymentOptions = ({ navigation }) => {
     debitCredit: false,
   });
 
+  const [expandedLoanType, setExpandedLoanType] = useState(true);
   const [expanded, setExpanded] = useState(true);
 
   const toggleAccordion = (section) => {
@@ -71,22 +66,30 @@ const PaymentOptions = ({ navigation }) => {
     }));
   };
 
+  const headerProps =
+{
+  title: 'Pay EMI',
+  onPress: () => {
+    navigation.goBack();
+  },
+};
+
   return (
     <View style={styles.container}>
       <Header buttonProps={headerProps} />
 
-      <View style={styles.mainContainer}>
+      <ScrollView style={styles.mainContainer}>
         <View>
-          <ListItem.Accordion style={styles.accordionCard}
+          <ListItem.Accordion style={styles.accordionCardLoanType}
             content={
               <ListItem.Content>
                 <ListItem.Title style={styles.accordionTitle}>Home Loan</ListItem.Title>
                 <Text style={styles.subText}>Your transaction is secured with 256-bit encryption</Text>
               </ListItem.Content>
             }
-            isExpanded={expanded}
+            isExpanded={expandedLoanType}
             onPress={() => {
-              setExpanded(!expanded);
+              setExpandedLoanType(!expandedLoanType);
             }}
           >
             {/* {loanData.map((l, i) => (
@@ -112,15 +115,18 @@ const PaymentOptions = ({ navigation }) => {
             }}
           >
             <View style={styles.recommendedSection}>
-              <View style={styles.paymentContainer}>
-                <Card style={styles.card}>
-                  <Text style={styles.paymentLabel}>BHIM</Text>
-                </Card>
-                <Card style={styles.qrCodeCard}>
-                  <Text>QR Code</Text>
-                  <Text style={styles.qrText}>Scan & Pay with any UPI App</Text>
-                </Card>
-              </View>
+              <Card style={styles.cardContainer}>
+                <View style={styles.paycard}>
+                  <View>
+                    <Text>BHIM</Text>
+                  </View>
+                  <View>
+                    <Text>QR Code</Text>
+                    <Text style={styles.qrText}>Scan & Pay with any UPI App</Text>
+                  </View>
+                </View>
+              </Card>
+              {/* </View> */}
             </View>
           </ListItem.Accordion>
         </View>
@@ -161,7 +167,7 @@ const PaymentOptions = ({ navigation }) => {
               setExpanded(!expanded);
             }}
           >
-            <View>
+            <View style={styles.neftcard}>
               {banks.map((bank) => (
                 <Card key={bank.value} style={styles.bankCard}>
                   <Text>{bank.label}</Text>
@@ -200,7 +206,20 @@ const PaymentOptions = ({ navigation }) => {
               ))} */}
           </ListItem.Accordion>
         </View>
-      </View>
+      </ScrollView>
+
+      <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={() => navigation.goBack()}
+            style={styles.cancelButton}>
+            <Text style={styles.cancelButtonText}>
+              CANCEL</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('PaymentOptions')}
+            style={styles.proceedButton}>
+            <Text style={styles.proceedButtonText}>
+              PROCEED</Text>
+          </TouchableOpacity>
+        </View>
 
     </View>
 
@@ -214,41 +233,69 @@ const styles = StyleSheet.create({
     backgroundColor: '#DDDDDD',
   },
   mainContainer: {
-    paddingHorizontal: 12,
     backgroundColor: '#FFFFFF',
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
-    height: 800,
-    paddingTop: 15
+    // borderBottomRightRadius: 0,
+    // borderBottomLeftRadius: 0,
+    // borderBottomEndRadius: 0
+    // height: 850,
+    // paddingTop: 15
   },
-  accordionHeader: {
-    fontSize: 18,
+  
+  accordionCardLoanType: {
+    backgroundColor: '#DDDDDD',
+    marginTop: 20,
+    marginVertical: 1,
+    marginHorizontal: 12,
+    borderRadius: 10,
+    shadowColor: '#999999',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    elevation: 10,
+  },
+  accordionTitle: {
     fontWeight: 'bold',
-    paddingVertical: 10,
-    paddingHorizontal: 10
+    fontSize: 20,
+    color: '#333333',
   },
   subText: {
     fontSize: 12,
     color: 'gray',
     marginBottom: 10,
   },
+  accordionCard: {
+    backgroundColor: '#FFFFFF',
+    marginTop: 20,
+    marginVertical: 1,
+    marginHorizontal: 12,
+    borderRadius: 10,
+    shadowColor: '#999999',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    elevation: 10,
+  },
+  
   recommendedSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     marginVertical: 10,
   },
-  paymentContainer: {
+  cardContainer: {
+    marginHorizontal: 12
+  },
+  paycard: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    // marginRight: 10,
+    // marginLeft: 10,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between'
   },
-  card: {
-    padding: 16,
-    marginRight: 10,
-  },
-  qrCodeCard: {
-    padding: 16,
-    flex: 1,
-    alignItems: 'center',
+  neftcard: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
   },
   qrText: {
     fontSize: 10,
@@ -277,69 +324,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
   },
-  buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-  },
-  cancelButton: {
-    flex: 1,
-    padding: 15,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    alignItems: 'center',
-    marginRight: 10,
-  },
-  proceedButton: {
-    flex: 1,
-    padding: 15,
-    backgroundColor: '#004831',
-    borderRadius: 5,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-  },
-
-  loanItem: {
-    backgroundColor: '#FFFFFF',
-    // marginLeft: 0,
-    borderRadius: 10,
-    shadowColor: '#999999',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 10,
-  },
-  accordionCard: {
-    backgroundColor: '#FFFFFF',
-    marginTop: 20,
-    marginVertical: 1,
-    marginHorizontal: 12,
-    borderRadius: 10,
-    shadowColor: '#999999',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 10,
-  },
-  accordionTitle: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: '#333333',
-  },
-  lanIdCard: {
-    paddingHorizontal: 16,
-    paddingVertical: 20,
-    flexDirection: 'row',
-  },
-  tenureCard: {
-    backgroundColor: '#DDDDDD',
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -355,28 +339,43 @@ const styles = StyleSheet.create({
     fontSize: 16,
     // fontWeight: 'bold',
   },
-  status: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-    backgroundColor: '#D3FFCE',
-    color: '#666666',
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
-    borderBottomLeftRadius: 0,
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 80,
+    paddingHorizontal: 15,
+    // paddingBottom: 10,
+    backgroundColor: '#F5F0EB',
   },
-  expandable: {
-    padding: 16,
-    backgroundColor: '#fff',
-    marginTop: 8,
+  cancelButton: {
+    // flex: 1,
+    width: 180,
+    borderWidth: 1,
+    borderColor: '#2E6C50',
+    borderRadius: 25,
+    paddingVertical: 15,
+    // marginRight: 10,
+    alignItems: 'center',
   },
-  expandableText: {
+  cancelButtonText: {
+    color: '#2E6C50',
     fontSize: 16,
-    // fontWeight: 'bold',
-    color: '#333',
+    fontWeight: 'bold',
+  },
+  proceedButton: {
+    // flex: 1,
+    width: 180,
+    backgroundColor: '#2E6C50',
+    borderRadius: 25,
+    paddingVertical: 15,
+    marginLeft: 10,
+    alignItems: 'center',
+  },
+  proceedButtonText: {
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
