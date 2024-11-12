@@ -8,6 +8,7 @@ import ResetPasswordScreen from '../components/login/ResetPasswordScreen';
 import BottomNavigation from './BottomNavigation';
 // import FeatureNavigation from '../components/features/common/FeatureNavigation';
 import MyProfile from '../components/features/loans/MyProfile';
+import PaymentOptions from '../components/features/loans/PayEmi/PaymentOptions';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const AppNavigator = () => {
       <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
       {/* <Stack.Screen name="FeatureNavigation" component={FeatureNavigation} /> */}
       <Stack.Screen name="MyProfile" component={MyProfile} />
+      <Stack.Screen name="PaymentOptions" component={PaymentOptions} />
     </Stack.Navigator>
   );
 };

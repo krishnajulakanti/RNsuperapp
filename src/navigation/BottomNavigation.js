@@ -8,7 +8,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Dashboard from '../components/features/loans/Dashboard';
 import Offers from '../components/features/loans/Offers';
-import PayEmi from '../components/features/loans/PayEmi';
+import PayEmi from '../components/features/loans/PayEmi/PayEmi';
 import EmiCalculator from '../components/features/loans/EmiCalculator';
 import Menu from '../components/features/loans/Menu';
 

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-import LoanHeader from '../common/LoanHeader';
-import Footer from '../../common/Footer';
+import LoanHeader from '../../common/LoanHeader';
+import Footer from '../../../common/Footer';
 
 const PayEmi = ({ navigation }) => {
   const [loanTypeOpen, setLoanTypeOpen] = useState(false);
@@ -92,7 +92,7 @@ const PayEmi = ({ navigation }) => {
             <Text style={styles.cancelButtonText}>
               CANCEL</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Menu')}
+          <TouchableOpacity onPress={() => navigation.navigate('PaymentOptions')}
             style={styles.proceedButton}>
             <Text style={styles.proceedButtonText}>
               CONTINUE</Text>
