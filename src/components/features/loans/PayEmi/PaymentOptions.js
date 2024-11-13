@@ -67,12 +67,12 @@ const PaymentOptions = ({ navigation }) => {
   };
 
   const headerProps =
-{
-  title: 'Pay EMI',
-  onPress: () => {
-    navigation.goBack();
-  },
-};
+  {
+    title: 'Pay EMI',
+    onPress: () => {
+      navigation.goBack();
+    },
+  };
 
   return (
     <View style={styles.container}>
@@ -120,6 +120,7 @@ const PaymentOptions = ({ navigation }) => {
                   <View>
                     <Text>BHIM</Text>
                   </View>
+                  <View style={styles.verticalBar} />
                   <View>
                     <Text>QR Code</Text>
                     <Text style={styles.qrText}>Scan & Pay with any UPI App</Text>
@@ -209,17 +210,17 @@ const PaymentOptions = ({ navigation }) => {
       </ScrollView>
 
       <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={() => navigation.goBack()}
-            style={styles.cancelButton}>
-            <Text style={styles.cancelButtonText}>
-              CANCEL</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('PaymentOptions')}
-            style={styles.proceedButton}>
-            <Text style={styles.proceedButtonText}>
-              PROCEED</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={() => navigation.goBack()}
+          style={styles.cancelButton}>
+          <Text style={styles.cancelButtonText}>
+            CANCEL</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('PaymentOptions')}
+          style={styles.proceedButton}>
+          <Text style={styles.proceedButtonText}>
+            PROCEED</Text>
+        </TouchableOpacity>
+      </View>
 
     </View>
 
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
     // height: 850,
     // paddingTop: 15
   },
-  
+
   accordionCardLoanType: {
     backgroundColor: '#DDDDDD',
     marginTop: 20,
@@ -277,7 +278,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 10,
   },
-  
+
   recommendedSection: {
     marginVertical: 10,
   },
@@ -292,6 +293,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+  verticalBar: {
+    marginLeft: 90,
+    width: 2,
+    height: 100,
+    backgroundColor: '#999999',
   },
   neftcard: {
     paddingHorizontal: 16,
